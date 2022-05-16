@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import NavBar from './NavBar'
 import "./style.css"
 
 
 const Registration = () => {
 
+
+    const navigate = useNavigate()
     
     const [fname, setFname] = useState('');
     const [lname, setLname] = useState('');
@@ -14,13 +17,15 @@ const Registration = () => {
     const [department, setDepartment] = useState('');
 
     const handleSubmit = () => {
-        localStorage.setItem('FirstName', JSON.stringify(fname));
-        localStorage.setItem('LastName', JSON.stringify(lname));
-        localStorage.setItem('Email', JSON.stringify(email));
-        localStorage.setItem('Password', JSON.stringify(password));
-        localStorage.setItem('Address', JSON.stringify(address));
-        localStorage.setItem('Department', JSON.stringify(department));
+        localStorage.setItem('FirstName', fname);
+        localStorage.setItem('LastName', lname);
+        localStorage.setItem('Email', email);
+        localStorage.setItem('Password', password);
+        localStorage.setItem('Address', address);
+        localStorage.setItem('Department', department);
         console.log("Data saved in LocalStorage")
+        alert('Login Successfully')
+        navigate("/Login")
     }
 // console.log(handleSubmit())
     // const [inpdata, setInpdata] = useState({

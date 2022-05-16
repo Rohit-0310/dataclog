@@ -10,16 +10,15 @@ const Login = () => {
     const [lpass, setLpass] = useState(" ");
 
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        let getemail = JSON.parse(localStorage.getItem('Email'))
-        let getpass = JSON.parse(localStorage.getItem('Password'))
+    const handleSubmit = () => {
+        let getemail = localStorage.getItem('Email')
+        let getpass = localStorage.getItem('Password')
         if(getemail === lemail || getpass === lpass){
             alert('Login Successfully')
             navigate("/")
         }
         else{
-            alert('Login Unsessfull')
+            alert('Login Unsuccessful')
         }
         console.log(getpass)
         console.log(getemail)
