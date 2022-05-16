@@ -6,8 +6,8 @@ const Login = () => {
 
     const navigate = useNavigate()
 
-    const [lemail, setLemail] = useState(" ");
-    const [lpass, setLpass] = useState(" ");
+    const [lemail, setLemail] = useState("");
+    const [lpass, setLpass] = useState("");
 
 
     const handleSubmit = () => {

@@ -24,7 +24,7 @@ const Registration = () => {
         localStorage.setItem('Address', address);
         localStorage.setItem('Department', department);
         console.log("Data saved in LocalStorage")
-        alert('Login Successfully')
+        alert('Registration Successfull')
         navigate("/Login")
     }
 // console.log(handleSubmit())
