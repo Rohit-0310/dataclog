@@ -1,7 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import NavBar from './NavBar'
 import "./style.css"
 const Login = () => {
+
+    const navigate = useNavigate()
+
+    const [lemail, setLemail] = useState(" ");
+    const [lpass, setLpass] = useState(" ");
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        let getemail = JSON.parse(localStorage.getItem('Email'))
+        let getpass = JSON.parse(localStorage.getItem('Password'))
+        if(getemail === lemail || getpass === lpass){
+            alert('Login Successfully')
+            navigate("/")
+        }
+        else{
+            alert('Login Unsessfull')
+        }
+        console.log(getpass)
+        console.log(getemail)
+        console.log(lpass)
+    }
     return (
         <div>
           <NavBar />
@@ -11,18 +34,20 @@ const Login = () => {
 
                 <div className='InputBox'>
                     <label for="email"><b>UserName / Email</b></label> <br />
-                    <input type="text" placeholder="Enter Your UserName / Email" required />
+                    <input   onChange={(e) => setLemail(e.target.value)} value={lemail} name="email" type="text" placeholder="Enter Your UserName / Email Id" required />
                 </div>
 
 
                 <div className='InputBox'>
                     <label for="password"><b>Password</b></label> <br />
-                    <input type="password" placeholder="Enter Your Password" required />
+                    <input   onChange={(e) => setLpass(e.target.value)} value={lpass} name="password" type="password" placeholder="Enter Your Password" required />
                 </div>
+
+
                 <input type="checkbox" name="remember" required/>
                 <label> Remember me</label>
 
-                <button className="btn"type="submit" ><b>Login</b></button>
+                <button className="btn" type="submit" onClick={handleSubmit} ><b>Login</b></button>
                 
             </div>
           </form>

@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import NavBar from './NavBar'
 import './style.css'
 
 const Home = () => {
+
+    const [poup, setPoup] = useState(false);
+
+
+    const handlePoup = () => {
+        setPoup(poup?false:true);
+    }
 
     function createData(eid, fname, lname,email, add, dep) {
         return { eid, fname, lname,email, add, dep };
@@ -38,7 +45,7 @@ const Home = () => {
             <table className="table">
                 <tr>
                     <th>Employee Id</th>
-                    <th>First Name</th>
+                    <th >First Name</th>
                     <th>Last Name</th>
                     <th>Email</th>
                     <th>Address</th>
@@ -48,7 +55,7 @@ const Home = () => {
                     <tr key={e.eid}>
 
                         <td>{e.eid}</td>
-                        <td>{e.fname}</td>
+                        <td onClick={handlePoup}>{e.fname}</td>
                         <td>{e.lname}</td>
                         <td>{e.email}</td>
                         <td>{e.add}</td>
@@ -56,35 +63,19 @@ const Home = () => {
                         
                     </tr>
                 ))}
-
-
-                {/* <tr>
-                    <td>2</td>
-                    <td>Maria</td>
-                    <td>Anders</td>
-                    <td>a@a.com</td>
-                    <td>Mexico</td>
-                    <td>IT</td>
-                </tr>
-
-                <tr>
-                    <td>3</td>
-                    <td>Maria</td>
-                    <td>Anders</td>
-                    <td>a@a.com</td>
-                    <td>Mexico</td>
-                    <td>IT</td>
-                </tr>
-
-                <tr>
-                    <td>4</td>
-                    <td>Maria</td>
-                    <td>Anders</td>
-                    <td>a@a.com</td>
-                    <td>Mexico</td>
-                    <td>IT</td>
-                </tr> */}
             </table>
+
+            <div className="poup_style" style={{display:poup?"block":"none"}}>
+                <div className="popud_div">
+                    
+                    <label><b>Employee Id:-</b></label> <span>name</span> <br/> <br/>
+                    <label><b>First Name:-</b></label> <span>firstName</span>  <br/> <br/>
+                    <label><b>Last Name:-</b></label> <span>lastName</span> <br/> <br/>
+                    <label><b>Email:-</b></label> <span>Email</span> <br/> <br/>
+                    <label><b>Address:-</b></label> <span>Address</span> <br/> <br/>
+                    <label><b>Department:-</b></label> <span>Department</span> <br/> <br/>
+                </div>
+            </div>
 
         </div>
       </div>

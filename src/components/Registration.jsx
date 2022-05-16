@@ -14,12 +14,13 @@ const Registration = () => {
     const [department, setDepartment] = useState('');
 
     const handleSubmit = () => {
-        localStorage.setItem('FirstName', fname);
-        localStorage.setItem('LastName', lname);
-        localStorage.setItem('Email', email);
-        localStorage.setItem('Password', password);
-        localStorage.setItem('Address', address);
-        localStorage.setItem('Department', department);
+        localStorage.setItem('FirstName', JSON.stringify(fname));
+        localStorage.setItem('LastName', JSON.stringify(lname));
+        localStorage.setItem('Email', JSON.stringify(email));
+        localStorage.setItem('Password', JSON.stringify(password));
+        localStorage.setItem('Address', JSON.stringify(address));
+        localStorage.setItem('Department', JSON.stringify(department));
+        console.log("Data saved in LocalStorage")
     }
 // console.log(handleSubmit())
     // const [inpdata, setInpdata] = useState({
@@ -95,7 +96,7 @@ return (
                 </div>
 
 
-                <button className="btn"type="submit" onClick={handleSubmit} ><b>Login</b></button>
+                <button className="btn" type="submit" onClick={handleSubmit} ><b>Register</b></button>
                 
             </div>
           </form>
