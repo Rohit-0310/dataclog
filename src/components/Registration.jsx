@@ -15,49 +15,34 @@ const Registration = () => {
     const [password, setPassword] = useState('');
     const [address, setAddress] = useState('');
     const [department, setDepartment] = useState('');
+    const [error, setError] = useState(false);
 
-    const handleSubmit = () => {
-        localStorage.setItem('FirstName', fname);
-        localStorage.setItem('LastName', lname);
-        localStorage.setItem('Email', email);
-        localStorage.setItem('Password', password);
-        localStorage.setItem('Address', address);
-        localStorage.setItem('Department', department);
-        console.log("Data saved in LocalStorage")
-        alert('Registration Successfull')
-        navigate("/Login")
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if(!fname || !lname || !email || !password || !address || !department){
+            setError(true)
+            setTimeout(() => {
+                alert('Registration Unsuccessful!, Please fill all necessary fields below')
+                console.log("Registration Unsuccessful!");
+              }, 2000)
+        } else {
+            setError(false)
+            localStorage.setItem('FirstName', fname);
+            localStorage.setItem('LastName', lname);
+            localStorage.setItem('Email', email);
+            localStorage.setItem('Password', password);
+            localStorage.setItem('Address', address);
+            localStorage.setItem('Department', department);
+            console.log("Data saved in LocalStorage")
+            
+            setTimeout(() => {
+                alert('Registration Successfull')
+                navigate("/Login")                
+            }, 2000);
+        }
     }
-// console.log(handleSubmit())
-    // const [inpdata, setInpdata] = useState({
-    //     firstName:"",lastName:"",email:"",password:"",address:"",department:"IT"
-    // })
-
-
-    // const getData = (e) => {
-    //     let name = e.target.name;
-    //     let value = e.target.value;
-    //     setInpdata({...inpdata,[name]:value});
-
-    //     console.log(inpdata)
-        
-    // }
-
-    // const handleInputChange = (e) =>{
-    //     let {name, value} = e.target;
-    //     setInpdata({...inpdata, [name]: value})
-    //     console.log(inpdata.name)
-    // }
-
-    // const handleRegistration = () => {
-    //     // localStorage.setItem(inpdata)
-    //  };
-     
-
-    //  const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     handleRegistration()
-        
-    // }
+//
 
 return (
     <div>

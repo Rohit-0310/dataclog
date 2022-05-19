@@ -10,15 +10,20 @@ const Login = () => {
     const [lpass, setLpass] = useState("");
 
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault()
         let getemail = localStorage.getItem('Email')
         let getpass = localStorage.getItem('Password')
-        if(getemail === lemail || getpass === lpass){
-            alert('Login Successfully')
-            navigate("/")
+        if(getemail === lemail && getpass === lpass){
+            setTimeout(() =>{
+                alert('Login Successfully')
+                navigate("/")
+            }, 2000)
         }
         else{
-            alert('Login Unsuccessful')
+            setTimeout(() =>{
+                alert('Login Unsuccessful')
+            }, 1000)
         }
         console.log(getpass)
         console.log(getemail)
@@ -43,7 +48,7 @@ const Login = () => {
                 </div>
 
 
-                <input type="checkbox" name="remember" required/>
+                <input type="checkbox" name="remember"/>
                 <label> Remember me</label>
 
                 <button className="btn" type="submit" onClick={handleSubmit} ><b>Login</b></button>
