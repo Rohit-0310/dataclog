@@ -182,7 +182,7 @@ const Home = () => {
                     <tr key={e.eid} onClick={()=>handlePoup(e.eid)}  >
 
                         <td>{e.eid}</td>
-                        <td   >   {e.fname}</td>
+                        <td>{e.fname}</td>
                         <td>{e.lname}</td>
                         <td>{e.email}</td>
                         <td>{e.add}</td>

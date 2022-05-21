@@ -22,14 +22,18 @@ const NavBar = () => {
     const handlRegistration = () => {
         navigate("/Registration")
     }
+    const handlUserDetails = () => {
+      navigate("/UserDetails")
+  }
 
     return (
         <Box sx={{ flexGrow: 1 }}>
           <AppBar position="static">
             <Toolbar>
             <Button onClick={()=>handlHome()} color="inherit">Home Page</Button>
-              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                User Details
+              <Typography onClick={()=>handlUserDetails()} variant="h6" color="red" component="div" sx={{ flexGrow: 1 }}>
+              User Details
+                
               </Typography>
               <Button onClick={()=>handlLogin()} color="inherit">Login</Button>
               <Button onClick={()=>handlRegistration()} color="inherit">Registration</Button>
